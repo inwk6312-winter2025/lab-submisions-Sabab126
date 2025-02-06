@@ -1,0 +1,8 @@
+{% for interface in interfaces %}
+Interface Name: {{ interface.name }}
+Description: {{ interface.description }}
+VLAN: {{ interface.vlan }}
+Uplink: {{ interface.uplink }}
+---------------------------
+{% endfor %}
+
