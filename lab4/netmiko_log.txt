@@ -1,0 +1,190 @@
+DEBUG:paramiko.transport:starting thread (client mode): 0x24a23d90
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_3.5.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-2.0-Cisco-1.25
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+DEBUG:paramiko.transport:=== Key exchange possibilities ===
+DEBUG:paramiko.transport:kex algos: diffie-hellman-group-exchange-sha1, diffie-hellman-group14-sha1
+DEBUG:paramiko.transport:server key: ssh-rsa
+DEBUG:paramiko.transport:client encrypt: aes128-ctr, aes192-ctr, aes256-ctr
+DEBUG:paramiko.transport:server encrypt: aes128-ctr, aes192-ctr, aes256-ctr
+DEBUG:paramiko.transport:client mac: hmac-sha2-256, hmac-sha2-512, hmac-sha1, hmac-sha1-96
+DEBUG:paramiko.transport:server mac: hmac-sha2-256, hmac-sha2-512, hmac-sha1, hmac-sha1-96
+DEBUG:paramiko.transport:client compress: none
+DEBUG:paramiko.transport:server compress: none
+DEBUG:paramiko.transport:client lang: <none>
+DEBUG:paramiko.transport:server lang: <none>
+DEBUG:paramiko.transport:kex follows: False
+DEBUG:paramiko.transport:=== Key exchange agreements ===
+DEBUG:paramiko.transport:Kex: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey: ssh-rsa
+DEBUG:paramiko.transport:Cipher: aes128-ctr
+DEBUG:paramiko.transport:MAC: hmac-sha2-256
+DEBUG:paramiko.transport:Compression: none
+DEBUG:paramiko.transport:=== End of kex handshake ===
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.1.101: b'c20d519e9e00ac29f2c1bcda664dc09f'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:read_channel: R01#
+R01#
+DEBUG:netmiko:read_channel: termina
+DEBUG:netmiko:read_channel: l width 511
+
+DEBUG:netmiko:Pattern found: (terminal width 511) R01#
+R01#terminal width 511
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: R01#
+DEBUG:netmiko:read_channel: ter
+DEBUG:netmiko:read_channel: mina
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: l len
+DEBUG:netmiko:read_channel: gt
+DEBUG:netmiko:read_channel: h 0
+R01#
+DEBUG:netmiko:Pattern found: (terminal\ length\ 0) 
+R01#terminal length 0
+DEBUG:netmiko:
+R01#terminal length 0
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:Clear buffer detects data in the channel
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+R01#
+DEBUG:netmiko:
+Parenthesis found in pattern.
+
+pattern: (\#|>)
+
+
+This can be problemtic when used in read_until_pattern().
+
+You should ensure that you use either non-capture groups i.e. '(?:' or that the
+parenthesis completely wrap the pattern '(pattern)'
+DEBUG:netmiko:Pattern found: (\#|>) 
+R01#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:[find_prompt()]: prompt is R01#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+R01#
+DEBUG:netmiko:Pattern found: ([>#]) 
+R01#
+DEBUG:netmiko:write_channel: b'configure terminal\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: con
+DEBUG:netmiko:read_channel: fig
+DEBUG:netmiko:read_channel: ure ter
+DEBUG:netmiko:read_channel: mina
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: l
+Enter configuration commands, one per line.  End with CNTL/Z.
+R01(config)#
+DEBUG:netmiko:Pattern found: (configure\ terminal) configure terminal
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:Pattern found: (R01.*) 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R01(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+R01(config)#
+DEBUG:netmiko:Pattern found: ([>#]) 
+R01(config)#
+DEBUG:netmiko:write_channel: b'interface GigabitEthernet3\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: interf
+DEBUG:netmiko:read_channel: ace G
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: igab
+DEBUG:netmiko:read_channel: itEt
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: hern
+DEBUG:netmiko:read_channel: et3
+
+DEBUG:netmiko:Pattern found: (interface\ GigabitEthernet3) interface GigabitEthernet3
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: R01(config-if)#
+DEBUG:netmiko:Pattern found: ((?:R01.*$|#.*$)) 
+R01(config-if)#
+DEBUG:netmiko:write_channel: b'description This is set via Netmiko from a text file\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: descrip
+DEBUG:netmiko:read_channel: tion
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel:  Thi
+DEBUG:netmiko:read_channel: s is se
+DEBUG:netmiko:read_channel: t
+DEBUG:netmiko:read_channel:  
+DEBUG:netmiko:read_channel: via
+DEBUG:netmiko:read_channel:  Netmi
+DEBUG:netmiko:read_channel: ko f
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: rom 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: a 
+DEBUG:netmiko:read_channel: text f
+DEBUG:netmiko:read_channel: il
+DEBUG:netmiko:read_channel: e
+R01(config-if)#
+DEBUG:netmiko:Pattern found: (description\ This\ is\ set\ via\ Netmiko\ from\ a\ text\ file) description This is set via Netmiko from a text file
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:Pattern found: ((?:R01.*$|#.*$)) 
+R01(config-if)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+R01(config-if)#
+DEBUG:netmiko:Pattern found: ([>#]) 
+R01(config-if)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: end
+DEBUG:netmiko:Pattern found: (end) end
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+R01#
+DEBUG:netmiko:Pattern found: (#.*) 
+R01#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+R01#
+DEBUG:netmiko:Pattern found: ([>#]) 
+R01#
+DEBUG:netmiko:exit_config_mode: end
+R01#
+DEBUG:netmiko:configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+R01(config)#interface GigabitEthernet3
+R01(config-if)#description This is set via Netmiko from a text file
+R01(config-if)#end
+R01#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+R01#
+DEBUG:netmiko:Pattern found: ([>#]) 
+R01#
+DEBUG:netmiko:write_channel: b'exit\n'
